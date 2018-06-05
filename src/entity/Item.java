@@ -88,7 +88,6 @@ public class Item {
 		return snippetUrl;
 	}
 	
-	
 	public JSONObject toJSONObject() {
 		JSONObject obj = new JSONObject();
 		try {

@@ -62,16 +62,16 @@ public class RpcHelper {
 	}
 	
 	// Converts a list of Item objects to JSONArray.
-		public static JSONArray getJSONArray(List<Item> items) {
-			JSONArray result = new JSONArray();
-			try {
-				for (Item item : items) {
-					result.put(item.toJSONObject());
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
+	public static JSONArray getJSONArray(List<Item> items) {
+		JSONArray result = new JSONArray();
+		try {
+			for (Item item : items) {
+				result.put(item.toJSONObject());
 			}
-			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		return result;
+	}
 
 }

@@ -1,9 +1,7 @@
 package db;
 
-
 import java.util.List;
 import java.util.Set;
-
 import entity.Item;
 
 public interface DBConnection {

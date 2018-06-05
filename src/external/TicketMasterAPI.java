@@ -84,14 +84,15 @@ public class TicketMasterAPI implements ExternalAPI{
 	}
  
 	
-	
 	/**
-	 * Helper methods
+	 * Convert JSONArray to a list of item objects.
+	 * 
+	 * @param  events the list of events with JSONArray type
+	 * @return        the list of items with List type
+	 * @throws JSONException
 	 */
-	// Convert JSONArray to a list of item objects.
 	private List<Item> getItemList(JSONArray events) throws JSONException {
 		List<Item> itemList = new ArrayList<>();
-
 		for (int i = 0; i < events.length(); i++) {
 			JSONObject event = events.getJSONObject(i);
 			ItemBuilder builder = new ItemBuilder();
@@ -145,6 +146,13 @@ public class TicketMasterAPI implements ExternalAPI{
 		return itemList;
 	}
 
+	/**
+	 * Get the venue information of an including address, city, state, country 
+	 * 
+	 * @param  event the event JSONObject
+	 * @return       the venue information based on a given event.
+	 * @throws JSONException
+	 */
 	private JSONObject getVenue(JSONObject event) throws JSONException {
 		if (!event.isNull("_embedded")) {
 			JSONObject embedded = event.getJSONObject("_embedded");
@@ -168,6 +176,13 @@ public class TicketMasterAPI implements ExternalAPI{
 		return null;
 	}
 
+	/**
+	 * Get the description information of an including address, city, state, country 
+	 * 
+	 * @param  event the event JSONObject
+	 * @return       the string of description
+	 * @throws JSONException
+	 */
 	private String getDescription(JSONObject event) throws JSONException {
 		if (!event.isNull("description")) {
 			return event.getString("description");
